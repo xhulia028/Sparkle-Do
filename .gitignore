@@ -1,0 +1,18 @@
+# Environment
+.env
+
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+__pycache__/
+*.pyc
+
+# Database
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
