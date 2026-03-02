@@ -19,7 +19,7 @@ services:
 
   backend:
     build: ./backend
-    image: ghcr.io/xhulia028/sparkle-do-backend:latest
+    image: xhulia028/sparkle-do-backend:latest
     container_name: todo-backend
     ports:
       - "${BACKEND_PORT:-8000}:8000"
@@ -36,12 +36,12 @@ services:
 
   frontend:
     build: ./frontend
-    image: ghcr.io/xhulia028/sparkle-do-frontend:latest
+    image: xhulia028/sparkle-do-frontend:latest
     container_name: todo-frontend
     ports:
       - "${FRONTEND_PORT:-3000}:3000"
     environment:
-      - FASTAPI_URL=http://backend:8000
+      - FASTAPI_URL=http://${BACKEND_HOST:-backend}:8000
     depends_on:
       - backend
     restart: unless-stopped
