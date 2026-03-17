@@ -113,7 +113,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold text-center mb-2 shimmer-text">
             ✨ My Todo List ✨
           </h1>
-          <p className="text-center text-pink-400 mb-6 text-sm">stay organized, stay cute! 💅</p>
+          <p className="text-center text-pink-400 mb-6 text-sm">stay organized, stay flexy and sexy! 💅</p>
 
           <form onSubmit={addTodo} className="flex gap-2 mb-6">
             <input
