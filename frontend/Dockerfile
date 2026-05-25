@@ -3,7 +3,7 @@
 FROM node:20-alpine AS base
 
 # Test build arguments
-ARG TEST_ARG1
+ARG TEST_ARG1=defaultValueTest1
 ARG TEST_ARG2
 RUN echo "TEST_ARG1=${TEST_ARG1}" > /tmp/build_args.txt
 RUN echo "TEST_ARG2=${TEST_ARG2}" >> /tmp/build_args.txt
