@@ -1,4 +1,12 @@
+# Dockerfile
+
 FROM node:20-alpine AS base
+
+# Test build arguments
+ARG TEST_ARG1
+ARG TEST_ARG2
+RUN echo "TEST_ARG1=${TEST_ARG1}" > /tmp/build_args.txt
+RUN echo "TEST_ARG2=${TEST_ARG2}" >> /tmp/build_args.txt
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -27,7 +35,6 @@ RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
-# Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
