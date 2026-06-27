@@ -40,12 +40,16 @@ export default function Home() {
   const fetchTodos = async () => {
     try {
       const res = await fetch('/api/todos')
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`)
       const data = await res.json()
+      if (!Array.isArray(data)) throw new Error('Unexpected response')
       setTodos(data)
-    } catch (error) {
-      console.error('Failed to fetch todos:', error)
-    } finally {
       setLoading(false)
+    } catch (error) {
+      // Backend not reachable yet — stay in the loading state and retry
+      // instead of surfacing a client-side error.
+      console.error('Failed to fetch todos, retrying:', error)
+      setTimeout(fetchTodos, 3000)
     }
   }
 
