@@ -92,14 +92,14 @@ export default function Home() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-purple-200 flex items-center justify-center">
-        <p className="text-pink-500 text-xl font-medium">✨ Loading... ✨</p>
+      <main className="min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-purple-200 flex items-center justify-center">
+        <p className="text-green-500 text-xl font-medium">✨ Loading... ✨</p>
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-purple-200 py-8 relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-purple-200 py-8 relative overflow-hidden">
       <Sparkles />
       
       {/* Decorative hearts */}
@@ -109,11 +109,11 @@ export default function Home() {
       <div className="absolute bottom-32 right-10 text-4xl float-animation" style={{ animationDelay: '1.5s' }}>✨</div>
       
       <div className="max-w-md mx-auto relative z-10">
-        <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl p-8 border-2 border-pink-200">
+        <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl p-8 border-2 border-green-200">
           <h1 className="text-3xl font-bold text-center mb-2 shimmer-text">
             ✨ My Todo List ✨
           </h1>
-          <p className="text-center text-pink-400 mb-6 text-sm">stay organized, stay quirky! 💅</p>
+          <p className="text-center text-green-400 mb-6 text-sm">stay organized, stay quirky! 💅</p>
 
           <form onSubmit={addTodo} className="flex gap-2 mb-6">
             <input
@@ -121,11 +121,11 @@ export default function Home() {
               value={newTodo}
               onChange={(e) => setNewTodo(e.target.value)}
               placeholder="Add something cute to do... 🌸"
-              className="flex-1 px-4 py-3 border-2 border-pink-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white/80 placeholder-pink-300 text-pink-600"
+              className="flex-1 px-4 py-3 border-2 border-green-200 rounded-full focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 bg-white/80 placeholder-green-300 text-green-600"
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-full hover:from-pink-500 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-pink-300/50 hover:scale-105 font-medium"
+              className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 text-white rounded-full hover:from-green-500 hover:to-green-600 transition-all duration-300 shadow-lg hover:shadow-green-300/50 hover:scale-105 font-medium"
             >
               Add 💖
             </button>
@@ -134,8 +134,8 @@ export default function Home() {
           <ul className="space-y-3">
             {todos.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-pink-400 text-lg">No todos yet!</p>
-                <p className="text-pink-300 text-sm mt-1">Add your first one above 🌷</p>
+                <p className="text-green-400 text-lg">No todos yet!</p>
+                <p className="text-green-300 text-sm mt-1">Add your first one above 🌷</p>
               </div>
             ) : (
               todos.map((todo) => (
@@ -143,16 +143,16 @@ export default function Home() {
                   key={todo.id}
                   className={`flex items-center gap-3 p-4 rounded-2xl transition-all duration-300 ${
                     todo.completed 
-                      ? 'bg-pink-100/50 border-2 border-pink-200' 
-                      : 'bg-white/60 border-2 border-pink-300 shadow-md hover:shadow-lg hover:shadow-pink-200/50'
+                      ? 'bg-green-100/50 border-2 border-green-200' 
+                      : 'bg-white/60 border-2 border-green-300 shadow-md hover:shadow-lg hover:shadow-green-200/50'
                   }`}
                 >
                   <button
                     onClick={() => toggleTodo(todo)}
                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                       todo.completed
-                        ? 'bg-pink-400 border-pink-400 text-white'
-                        : 'border-pink-300 hover:border-pink-400 hover:bg-pink-50'
+                        ? 'bg-green-400 border-green-400 text-white'
+                        : 'border-green-300 hover:border-green-400 hover:bg-green-50'
                     }`}
                   >
                     {todo.completed && '✓'}
@@ -160,15 +160,15 @@ export default function Home() {
                   <span
                     className={`flex-1 ${
                       todo.completed 
-                        ? 'line-through text-pink-300' 
-                        : 'text-pink-600'
+                        ? 'line-through text-green-300' 
+                        : 'text-green-600'
                     }`}
                   >
                     {todo.title}
                   </span>
                   <button
                     onClick={() => deleteTodo(todo.id)}
-                    className="px-3 py-1.5 text-pink-400 hover:text-white hover:bg-pink-400 rounded-full transition-all duration-300 text-sm"
+                    className="px-3 py-1.5 text-green-400 hover:text-white hover:bg-green-400 rounded-full transition-all duration-300 text-sm"
                   >
                     ✕
                   </button>
@@ -178,7 +178,7 @@ export default function Home() {
           </ul>
           
           {todos.length > 0 && (
-            <p className="text-center text-pink-300 text-xs mt-6">
+            <p className="text-center text-green-300 text-xs mt-6">
               {todos.filter(t => t.completed).length} of {todos.length} tasks completed 💝
             </p>
           )}
